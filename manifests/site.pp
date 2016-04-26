@@ -44,4 +44,9 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
   notify { "Hello, my name is still ${::hostname}": }
+  
+  file { '/etc/motd':
+    ensure => file,
+    contents => 'This is the message of the day.',
+  }
 }
