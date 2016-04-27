@@ -44,9 +44,4 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
   notify { "Hello, my name is still ${::hostname}": }
-  
-  exec { 'motd_gen':
-    command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
-    path => '/usr/local/bin',
-  }
 }
