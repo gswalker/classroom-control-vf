@@ -50,4 +50,6 @@ node default {
     ip => '127.0.0.1',
     host_aliases => 'testing.puppetlabs.vm',
   }
+  
+  include users;
 }
