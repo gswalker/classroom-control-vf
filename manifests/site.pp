@@ -42,15 +42,9 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
-  notify { "Hello, my name is ${::hostname}": }
-  notify { "Hello, my name is still ${::hostname}": }
-  
   host { 'testing':
     ensure => 'present',
     ip => '127.0.0.1',
     host_aliases => 'testing.puppetlabs.vm',
   }
-  
-  include users
-  include skeleton
 }
