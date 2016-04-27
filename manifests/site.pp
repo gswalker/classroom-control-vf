@@ -47,4 +47,5 @@ node default {
   
   exec { 'motd_gen':
     command => "cowsay 'Welcome to ${::fqdn}! > /etc/motd",
+  }
 }
