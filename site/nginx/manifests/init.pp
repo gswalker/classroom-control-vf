@@ -37,7 +37,7 @@ class nginx {
     owner => 'root',
     group => 'root',
     mode => '0664',
-    source => 'puppet:///modules/index.html',
+    source => 'puppet:///modules/nginx/index.html',
   }
   service { 'nginx':
     ensure => running,
