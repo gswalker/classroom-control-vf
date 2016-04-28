@@ -43,16 +43,17 @@ node default {
   # Example:
   #   class { 'my_class': }
   
-  if $::virtual != 'physical' {
-    $vmname = capitalize($::virtual)
-    notify { "This is a ${vmname} VM.":}
-  }
+  # if $::virtual != 'physical' {
+  #   $vmname = capitalize($::virtual)
+  #   notify { "This is a ${vmname} VM.":}
+  # }
   
-  host { 'testing':
-    ensure => 'present',
-    ip => '127.0.0.1',
-    host_aliases => 'testing.puppetlabs.vm',
-  }
+  # host { 'testing':
+  #   ensure => 'present',
+  #   ip => '127.0.0.1',
+  #   host_aliases => 'testing.puppetlabs.vm',
+  # }
   
-  notify(hiera('message'))
+  $msg= hiera('message')
+  notify { $msg: }
 }
