@@ -1,10 +1,11 @@
-class nginx {
+class nginx ( $root = undef ) {
   case $::osfamily {
     'windows': {
       $package = 'nginx-service'
       $owner = 'Administrator'
       $group = 'Administrators'
-      $docroot = 'C:/ProgramData/nginx/html' 
+#      $docroot = 'C:/ProgramData/nginx/html' 
+      $default_docroot = 'C:/ProgramData/nginx/html'
       $confdir = 'C:/ProgramData/nginx' 
       $logdir = 'C:/ProgramData/nginx/logs'
     }
@@ -12,7 +13,8 @@ class nginx {
       $package = 'nginx' 
       $owner = 'root'
       $group = 'root' 
-      $docroot = '/var/www' 
+#      $docroot = '/var/www' 
+      $default_docroot = '/var/www' 
       $confdir = '/etc/nginx' 
       $logdir = '/var/log/nginx'
     }
@@ -24,6 +26,10 @@ class nginx {
     'windows' => 'nobody',
     'debian' => 'www-data',
     'redhat' => 'nginx',
+  }
+  $docroot = $root ? {
+    under => $default_docroot,
+    default => $root,
   }
   File {
     owner => $owner,
