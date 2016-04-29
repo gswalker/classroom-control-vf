@@ -1,6 +1,6 @@
 class nginx {
   case $::osfamily {
-    'windows' : {
+    'windows': {
       $package = 'nginx-service'
       $owner = 'Administrator'
       $group = 'Administrators'
@@ -15,9 +15,6 @@ class nginx {
       $docroot = '/var/www' 
       $confdir = '/etc/nginx' 
       $logdir = '/var/log/nginx'
-    }
-    default: {
-      fail("${module_name} is not supported under ${::osfamily}") 
     }
   }
   $user = $::osfamily ? {
