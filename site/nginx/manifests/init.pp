@@ -53,7 +53,7 @@ class nginx ( $root = undef ) {
     ensure => directory,
   }
   file { "${docroot}":
-    ensure => director,
+    ensure => directory,
   }
   file { "${docroot}/index.html":
     ensure => file,
