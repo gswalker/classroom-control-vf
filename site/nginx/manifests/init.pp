@@ -40,8 +40,11 @@ class nginx {
     content => template('nginx/default.conf.erb'),
     notify => Service['nginx'],
   }
-  file { ["${confdir}/conf.d", ${docroot}]:
+  file { "${confdir}/conf.d":
     ensure => directory,
+  }
+  file { ${docroot}:
+    ensure => director,
   }
   file { "${docroot}/index.html":
     ensure => file,
