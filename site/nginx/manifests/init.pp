@@ -52,7 +52,7 @@ class nginx ( $root = undef ) {
   file { "${confdir}/conf.d":
     ensure => directory,
   }
-  file { '${docroot}':
+  file { "${docroot}":
     ensure => director,
   }
   file { "${docroot}/index.html":
