@@ -16,6 +16,9 @@ class nginx {
       $confdir = '/etc/nginx' 
       $logdir = '/var/log/nginx'
     }
+    default : {
+      fail("${module_name} is not supported under ${::osfamily}")
+    }
   }
   $user = $::osfamily ? {
     'windows' => 'nobody',
