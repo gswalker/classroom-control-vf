@@ -16,7 +16,7 @@ class nginx {
       $confdir = '/etc/nginx' 
       $logdir = '/var/log/nginx'
     }
-    default : {
+    default: {
       fail("${module_name} is not supported under ${::osfamily}") 
     }
   }
