@@ -45,8 +45,7 @@ class nginx {
   }
   file { "${docroot}/index.html":
     ensure => file,
-    content => template('nginx/nginx.conf.erb'),
-    notify => Service['nginx'],
+    source => 'puppet:///modules/nginx/index.html',
   }
   service { 'nginx':
     ensure => running,
